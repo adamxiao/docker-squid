@@ -26,10 +26,10 @@ fi
 
 # default behaviour is to launch squid
 if [[ -z ${1} ]]; then
-  /usr/lib64/squid/ssl_crtd -c -s /var/lib/ssl_db -M 4MB
+  #/usr/lib64/squid/ssl_crtd -c -s /var/lib/ssl_db -M 4MB
   #if [[ ! -d ${SQUID_CACHE_DIR}/00 ]]; then
     #echo "Initializing cache..."
-    /usr/sbin/squid -N -f /etc/squid/squid.conf -z
+    #/usr/sbin/squid -N -f /etc/squid/squid.conf -z
   #fi
   echo "Starting squid..."
   exec /usr/sbin/squid -f /etc/squid/squid.conf -NYCd 1 ${EXTRA_ARGS}

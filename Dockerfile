@@ -9,12 +9,11 @@ ENV SQUID_VERSION=3.5.27 \
     SQUID_USER=squid
 
 RUN yum makecache \
- && yum install -y squid ruby
+ && yum install -y squid
 
 ADD ./files /files
 COPY entrypoint.sh /sbin/entrypoint.sh
 RUN mv /files/squid/* /etc/squid/ \
-    && chmod +x /etc/squid/url_rewriter.rb \
     && chmod 755 /sbin/entrypoint.sh
 
 EXPOSE 3128/tcp
